@@ -1,0 +1,32 @@
+#=========================== Filebeat inputs ==============
+filebeat.inputs:
+
+- type: log
+
+  enabled: true
+  ##配置你要收集的日志目录，可以配置多个目录
+  paths:
+    - /xx/xx/*.log
+
+  ##配置多行日志合并规则，已时间为准，一个时间发生的日志为一个事件      
+  multiline.pattern: '^\d{4}-\d{2}-\d{2}'
+  multiline.negate: true
+  multiline.match: after
+
+## 设置kibana的地址，开始filebeat的可视化  
+setup.kibana.host: "http://kibana:5601"
+setup.dashboards.enabled: true
+#-------------------------- Elasticsearch output ---------
+output.elasticsearch:
+    hosts: ["http://172.17.0.2:9200"]
+    index: "filebeat-%{+yyyy.MM.dd}"
+
+setup.template.name: "my-log"
+setup.template.pattern: "my-log-*"
+json.keys_under_root: false
+json.overwrite_keys: true
+##设置解析json格式日志的规则
+processors:
+- decode_json_fields:
+    fields: [""]
+    target: json
