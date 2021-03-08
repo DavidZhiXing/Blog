@@ -1,87 +1,110 @@
-横向流程图
+**流程图**([Flowchart](https://mermaid-js.github.io/mermaid/#/flowchart?id=flowcharts-basic-syntax))
 
 ```mermaid
 graph LR
-A[方形] -->B(圆角)
-    B --> C{条件a}
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[横向流程图]
+    A[Hard edge] -->|Link text| B(Round edge)
+    B --> C{Decision}
+    C -->|One| D[Result one]
+    C -->|Two| E[Result two]
 ```
 
 竖向流程图
 
 ```mermaid
-graph TD
-A[方形] -->B(圆角)
-    B --> C{条件a}
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[竖向流程图]
+graph TD;
+    A[Start] --> B{Is it?};
+    B -- Yes --> C[OK];
+    C --> D[Rethink];
+    D --> B;
+    B -- No ----> E[End];
 ```
 
-标准流程图
+**状态图**
 
-```flow
-st=>start: 开始框
-op=>operation: 处理框
-cond=>condition: 判断框(是或否?)
-sub1=>subroutine: 子流程
-io=>inputoutput: 输入输出框
-e=>end: 结束框
-st->op->cond
-cond(yes)->io->e
-cond(no)->sub1(right)->op
+语法解释：`[*]` 表示开始或者结束，如果在箭头右边则表示结束。
+
+``` mermaid
+stateDiagram
+    [*] --> s1
+    s1 --> [*]
 ```
 
-标准流程图源码格式（横向）
+**类图**
 
-```flow
-st=>start: 开始框
-op=>operation: 处理框
-cond=>condition: 判断框(是或否?)
-sub1=>subroutine: 子流程
-io=>inputoutput: 输入输出框
-e=>end: 结束框
-st(right)->op(right)->cond
-cond(yes)->io(bottom)->e
-cond(no)->sub1(right)->op
+语法解释：`<|--` 表示继承，`+` 表示 `public`，`-` 表示 `private`。
+
+``` mermaid
+classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+      
+Class01 <|-- AveryLongClass : Cool
+Class03 *-- Class04
+Class05 o-- Class06
+Class07 .. Class08
+Class09 --> C2 : Where am i?
+Class09 --* C3
+Class09 --|> Class07
+Class07 : equals()
+Class07 : Object[] elementData
+Class01 : size()
+Class01 : int chimp
+Class01 : int gorilla
+Class08 <--> C2: Cool label
 ```
 
-时序图
 
-```sequence
-Title: 标题：复杂使用
-对象A->对象B: 对象B你好吗?（请求）
-Note right of 对象B: 对象B的描述
-Note left of 对象A: 对象A的描述(提示)
-对象B-->对象A: 我很好(响应)
-对象B->小三: 你好吗
-小三-->>对象A: 对象B找我了
-对象A->对象B: 你真的好吗？
-Note over 小三,对象B: 我们是朋友
-participant C
-Note right of C: 没人陪我玩
+
+**饼图**
+
+饼图使用 `pie` 表示，标题下面分别是区域名称及其百分比。
+
+``` mermaid
+pie
+    title Key elements in Product X
+    "Calcium" : 42.96
+    "Potassium" : 50.05
+    "Magnesium" : 10.01
+    "Iron" :  5
 ```
 
-UML标准
+
+
+**时序图**([Sequence diagram](https://mermaid-js.github.io/mermaid/#/sequenceDiagram))
 
 ```mermaid
-%% 时序图例子,-> 直线，-->虚线，->>实线箭头
-  sequenceDiagram
-    participant 张三
-    participant 李四
-    张三->王五: 王五你好吗？
-    loop 健康检查
-        王五->王五: 与疾病战斗
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
     end
-    Note right of 王五: 合理 食物 <br/>看医生...
-    李四-->>张三: 很好!
-    王五->李四: 你怎么样?
-    李四-->王五: 很好!
+    Note right of John: Rational thoughts <br/>prevail!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
 ```
 
-甘特图
+**甘特图**([Gantt diagram](https://mermaid-js.github.io/mermaid/#/gantt))
 
 ```mermaid
 %% 语法示例
@@ -107,3 +130,48 @@ UML标准
         压力测试                               :after a1  , 20h
         测试报告                               : 48h
 ```
+
+### [Git graph - ![exclamation](https://github.githubassets.com/images/icons/emoji/exclamation.png) experimental](https://mermaid-js.github.io/mermaid/#/?id=git-graph-exclamation-experimental)
+
+``` mermaid
+gitGraph:
+options
+{
+    "nodeSpacing": 150,
+    "nodeRadius": 10
+}
+end
+commit
+branch newbranch
+checkout newbranch
+commit
+commit
+checkout master
+commit
+commit
+merge newbranch
+```
+
+### [Entity Relationship Diagram - ![exclamation](https://github.githubassets.com/images/icons/emoji/exclamation.png) experimental](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram)
+
+``` mermaid
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
+```
+
+### [User Journey Diagram](https://mermaid-js.github.io/mermaid/#/user-journey)
+
+``` mermaid
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+```
+
