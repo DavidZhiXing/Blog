@@ -5,3 +5,4 @@
 * [java和.net core的差别]()
 * [B+树的应用]()
 * [慎重使用dynamic](./慎重使用dynamic.md)
+* [msbuild batch](./msbuild.md)
