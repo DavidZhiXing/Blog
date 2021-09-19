@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\SumAnObjectArray.js"
+            "program": "${workspaceFolder}\\FlattenArrays.js"
         }
     ]
 }
