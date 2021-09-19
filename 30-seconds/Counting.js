@@ -51,3 +51,17 @@ let friends = [{
   )
 
   console.log(allbooks)
+
+  
+  let myArray = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+
+  let distinct = myArray.reduce(
+      (pre, current) => {
+          if(pre.indexOf(current) === -1) {
+              pre.push(current)
+          }
+          return pre
+      }, []
+  )
+
+  console.log(distinct)
