@@ -31,3 +31,23 @@ const groudby = (obj, property) => obj.reduce(
 )
 
 console.log(groudby(people, 'age'))
+
+let friends = [{
+    name: 'Anna',
+    books: ['Bible', 'Harry Potter'],
+    age: 21
+  }, {
+    name: 'Bob',
+    books: ['War and peace', 'Romeo and Juliet'],
+    age: 26
+  }, {
+    name: 'Alice',
+    books: ['The Lord of the Rings', 'The Shining'],
+    age: 18
+  }]
+
+  let allbooks = friends.reduce(
+      (pre, current) => [...pre, ...current.books], ['Alphabet']
+  )
+
+  console.log(allbooks)
