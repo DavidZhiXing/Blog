@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\JsonToCsv.js"
+            "program": "${workspaceFolder}\\RgbToHex.js"
         }
     ]
 }
