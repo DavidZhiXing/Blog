@@ -41,4 +41,22 @@
             Assert.Equal(0, historyStack.UndoCount);
             Assert.Throws<InvalidOperationException>(() => historyStack.Undo("foo"));
         }
+
+        [Fact]
+        public static void TestConvertToJsonBasic()
+        {
+            var context = new JsonObject.ConvertToJsonContext(maxDepth: 1, enumsAsStrings: false, compressOutput: true);
+            string expected = "{\"name\":\"req\",\"type\":\"http\"}";
+            OrderedDictionary hash = new OrderedDictionary {
+                {"name", "req"},
+                {"type", "http"}
+            };
+            string json = JsonObject.ConvertToJson(hash, in context);
+            Assert.Equal(expected, json);
+
+            hash.Add("self", hash);
+            json = JsonObject.ConvertToJson(hash, context);
+            expected = "{\"name\":\"req\",\"type\":\"http\",\"self\":{\"name\":\"req\",\"type\":\"http\",\"self\":\"System.Collections.Specialized.OrderedDictionary\"}}";
+            Assert.Equal(expected, json);
+        }
     }
