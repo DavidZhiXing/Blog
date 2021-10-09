@@ -131,7 +131,7 @@ sequenceDiagram
         测试报告                               : 48h
 ```
 
-### [Git graph - ![exclamation](https://github.githubassets.com/images/icons/emoji/exclamation.png) experimental](https://mermaid-js.github.io/mermaid/#/?id=git-graph-exclamation-experimental)
+### [Git graph](https://mermaid-js.github.io/mermaid/#/?id=git-graph-exclamation-experimental)
 
 ``` mermaid
 gitGraph:
@@ -152,7 +152,7 @@ commit
 merge newbranch
 ```
 
-### [Entity Relationship Diagram - ![exclamation](https://github.githubassets.com/images/icons/emoji/exclamation.png) experimental](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram)
+### [Entity Relationship Diagram ](https://mermaid-js.github.io/mermaid/#/entityRelationshipDiagram)
 
 ``` mermaid
 erDiagram
