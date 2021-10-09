@@ -111,4 +111,25 @@
             string json = JsonObject.ConvertToJson(hash, in context);
             Assert.Null(json);
         }
+
+        [Fact]
+        public static void TestBoundedStack()
+        {
+            const int capacity = 20;
+            var boundedStack = new BoundedStack<string>(capacity);
+            Assert.Throws<InvalidOperationException>(() => boundedStack.Pop());
+
+            for (int i = 0; i < capacity; i++)
+            {
+                boundedStack.Push($"{i}");
+            }
+
+            for (int i = 0; i < capacity; i++)
+            {
+                var poppedItem = boundedStack.Pop();
+                Assert.Equal($"{20 - 1 - i}", poppedItem);
+            }
+
+            Assert.Throws<InvalidOperationException>(() => boundedStack.Pop());
+        }
     }
