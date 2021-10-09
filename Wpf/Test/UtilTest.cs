@@ -59,4 +59,56 @@
             expected = "{\"name\":\"req\",\"type\":\"http\",\"self\":{\"name\":\"req\",\"type\":\"http\",\"self\":\"System.Collections.Specialized.OrderedDictionary\"}}";
             Assert.Equal(expected, json);
         }
+
+        [Fact]
+        public static void TestConvertToJsonWithEnum()
+        {
+            var context = new JsonObject.ConvertToJsonContext(maxDepth: 1, enumsAsStrings: false, compressOutput: true);
+            string expected = "{\"type\":1}";
+            Hashtable hash = new Hashtable {
+                {"type", CommandTypes.Alias}
+            };
+            string json = JsonObject.ConvertToJson(hash, in context);
+            Assert.Equal(expected, json);
+
+            context = new JsonObject.ConvertToJsonContext(maxDepth: 1, enumsAsStrings: true, compressOutput: true);
+            json = JsonObject.ConvertToJson(hash, in context);
+            expected = "{\"type\":\"Alias\"}";
+            Assert.Equal(expected, json);
+        }
+
+        [Fact]
+        public static void TestConvertToJsonWithoutCompress()
+        {
+            var context = new JsonObject.ConvertToJsonContext(maxDepth: 1, enumsAsStrings: true, compressOutput: false);
+            const string expected = @"{
+                                        ""type"": ""Alias""
+                                        }";
+            Hashtable hash = new Hashtable {
+                {"type", CommandTypes.Alias}
+            };
+            string json = JsonObject.ConvertToJson(hash, in context);
+            Assert.Equal(expected, json);
+        }
+
+        [Fact]
+        public static void TestConvertToJsonCancellation()
+        {
+            var source = new CancellationTokenSource();
+            var context = new JsonObject.ConvertToJsonContext(
+                maxDepth: 1,
+                enumsAsStrings: true,
+                compressOutput: false,
+                Newtonsoft.Json.StringEscapeHandling.Default,
+                targetCmdlet: null,
+                source.Token);
+
+            source.Cancel();
+            Hashtable hash = new Hashtable {
+                {"type", CommandTypes.Alias}
+            };
+
+            string json = JsonObject.ConvertToJson(hash, in context);
+            Assert.Null(json);
+        }
     }
