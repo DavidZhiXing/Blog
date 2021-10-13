@@ -1,0 +1,3 @@
+Barrier非常适合于让作业按阶段完成；
+
+比如Map阶段，Map结束之后Reduce阶段
