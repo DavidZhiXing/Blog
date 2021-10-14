@@ -3,6 +3,6 @@
 * [牛牛游戏设计](https://github.com/DavidZhiXing/Blog/blob/master/牛牛游戏设计.md)
 * [git rebase合并提交](https://github.com/DavidZhiXing/Blog/issues/1)
 * [java和.net core的差别]()
-* [B+树的应用]()
+* [B+树的应用](./B%2B树和B树.md)
 * [慎重使用dynamic](./慎重使用dynamic.md)
 * [msbuild batch](./msbuild.md)
