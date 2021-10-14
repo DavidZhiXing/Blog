@@ -1,6 +1,6 @@
 参考：
 
-``` shell
+``` batch
 @echo off
 
 IF "%1%" == "" GOTO display_help
