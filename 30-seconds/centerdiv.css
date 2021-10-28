@@ -1,0 +1,39 @@
+.centerdive {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.centerdive img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.centerdive iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+.rounded-top {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.sharp {
+    border-radius: 0;
+}
+
+.sharp-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.star {
+    border-radius: 50%;
+    background-color: #ffd700;
+}
