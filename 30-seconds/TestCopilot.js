@@ -61,3 +61,10 @@ function getJsonFromFile(fileName) {
     var fileContents = readFile(fileName);
     return JSON.parse(fileContents);
 }
+
+//what is my life purpose?
+function getLifePurpose() {
+    var lifePurpose = getJsonFromFile('30-seconds/lifePurpose.json');
+    var lifePurposeValue = lifePurpose.lifePurpose;
+    return lifePurposeValue;
+}
