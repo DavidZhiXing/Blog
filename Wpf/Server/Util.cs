@@ -23,6 +23,8 @@ public static class Util
         Console.WriteLine(a.Name);
     }
 
+    public void Retry
+
     public class A
     {
         public string Name { get; set; }
