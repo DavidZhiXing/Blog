@@ -109,13 +109,90 @@ int sqliteBtreeEndCkpt(Btree*);
 int sqliteBtreeRollbackCkpt(Btree*);
 
 
-struct PageOne{
-    char zMagic[8];
-    int iVersion;
-    Pgno freelist;
-    int nFree;
-    int aMeta[SQLITE_N_BTREE_META - 1];
+/*
+** All structures on a database page are aligned to 4-byte boundaries.
+** This routine rounds up a number of bytes to the next multiple of 4.
+** 
+** This might need to change for computer architectures that require
+** and 8-byte alignment boundry for structures.
+*/
+#define ROUND8(X)     (((X)+3)&~3)
+
+/*
+** This is a magic string that appears at the beginning of every
+** SQLite database in order to identify the file as a real database.
+*/
+static const char zMagicHeader[] = "** This file contains an SQLite 2.1 database **";
+
+#define MAGIC_SIZE (sizeof(zMagicHeader)-1)
+
+/*
+** This is a magic integer also useed to test the integrity of the database
+** file.  This integer is used in addittion to the string above so that 
+** if the file is written on a little-endian machine and read on a big-endian
+** machine(or vice versa), we can detect the problem.
+**
+** The number used was obtained at random and has no special significance other
+** than the fact that it represents a different integer on little-endian and 
+** big-endian machines.
+*/
+#define MAGIC      0xdae37528
+
+/*
+** The firt page of the database file contains a magic header string
+** to identify the file as an SQLite database file. It also contains
+** a pointer to the first page of the the file. Page 2 contains the root
+** of the principle BTree. The file might contain other BTrees rooted on pages
+** above 2.
+**
+** The first page also contains SQLITE_N_BTREE_META meta-data values.
+**
+*/
+struct PageOnee {
+  char zMagic[MAGIC_SIZE];  /* Magic header */
+  Pgno iPtr;                /* Pointer to first page of the database */
+  int nMeta;                /* Number of meta-data records on this page */
+  int aMeta[SQLITE_N_BTREE_META]; /* Meta-data records */
 };
 
+/*
+** Each database has a header that is an instance of this structure.
+**
+** PageHdr.firstFree is 0 if there is no free space on the page.  Otherwise,
+** PageHdr.firstFree is the index in MemPage.u.aDisk[] of a FreeBlk structure
+** that describes the first block of free space.
+** All free space is defined by a linked list of FreeBlk structures.
+**
+** Data is stored in a linked list of cell structure. PageHdr.firstCell
+** is the index in MemPage.u.aDisk[] of the first cell on the page.
+** The cells are kept in sorted order.
+**
+** A cell contains all in formation about a database entry and a pointer
+** to a child page that contains other entries less than itself. In other
+** words, hte i-th cell contains both Ptr(i) and Keyh(i). The right-most
+** pointer of the page is contained in PageHdr.rightChild.
+*/
+
+struct PageHdr {
+    int firstFree;            /* First free block on the page */
+    int firstCell;            /* First cell on the page */
+    Pgno rightChild;           /* Right-most child page */
+    };
 
 
+/*
+** Enries in a page of the database are called "Cells". Each cell has a 
+** header and data. This structure is the header. The key and data(collectively the "payload")
+** follow the header on the database page.
+**
+** A definithin of the complete Cell Structure is given below. The header for the cell must be defined
+** first in order to do some of the sizing #defines that follow.
+*/
+struct CellHdr {
+    Pgno leftChild;                /* Pointer to the child page */
+    u16 nKey;                      /* Number of bytes in the key */
+    u16 iNext;                     /* Index of the next cell on the page */
+    u8 nKeyHi;                     /* High byte of nKey */
+    u8 nDataHi;                    /* High byte of nData */
+    u16 nData;                     /* Number of bytes in the data */
+    };
