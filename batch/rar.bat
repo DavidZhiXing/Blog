@@ -2,6 +2,7 @@ mkdir Secure
 dotNET_Reactor.exe -project ..\..\..\AGV.nrproj -mapping_file 1 -obfuscation 1 -q -file AGV.exe
 dotNET_Reactor.exe -mapping_file 1 -obfuscation 1 -q -file AGV.Device.dll -targetfile Secure -satellite_assemblies "AGV.Commom.dll/AGV.Function.dll/AGVMap.dll"
 del /a /f /s *.rar
+copy AGVTest.exe  Secure\AGVTest.exe
 cd Secure
 del /a /f /s *.nrmap
 del /a /f /s *.rar
