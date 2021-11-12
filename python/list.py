@@ -86,3 +86,11 @@ social_list = [
     'https://www.douban.com',
 ]
 
+freelancer_list = [
+    'https://www.freelancer.com',
+    'https://www.upwork.com',
+    'https://www.indeed.com',
+    'https://www.workable.com',
+    'https://www.gulu.com',
+]
+
