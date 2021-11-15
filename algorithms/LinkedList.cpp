@@ -1,4 +1,19 @@
 
+struct node
+{
+    int data;
+    node* next;
+};
+
+
+node createNode(int data)
+{
+    node* newNode = new node;
+    newNode->data = data;
+    newNode->next = NULL;
+    return *newNode;
+}
+
 node addNode(node head, int value) {
     node temp, p;
     temp = createNode();
