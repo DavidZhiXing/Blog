@@ -132,4 +132,25 @@
 
             Assert.Throws<InvalidOperationException>(() => boundedStack.Pop());
         }
+
+        [Fact]
+        public void TestBase64Encode()
+        {
+            string input = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string expected = "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXpBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWjEyMzQ1Njc4OTo=";
+            string actual = Utils.EncodeToBase64String(input);
+            Assert.Equal(expected, actual);
+            Assert.Equal(actual.Length, 76);
+        }
+
+        [Fact]
+        public void TestBase64Decode()
+        {
+            string input = "YWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4eXpBQkNERUZHSElKS0xNTk9QUVJTVFVWV1hZWjEyMzQ1Njc4OTo=";
+            string expected = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            // string actual = Utils.DecodeFromBase64String(input);
+            string input = Encoding.UTF8.GetString(Convert.FromBase64String(expected));
+            string expected = Convert.ToBase64String(Encoding.UTF8.GetBytes(expected));
+            Assert.Equal(expected, actual);
+        }
     }
