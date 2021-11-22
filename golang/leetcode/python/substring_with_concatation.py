@@ -34,4 +34,3 @@ if __name__ == '__main__':
     print(leetcode.substringWithConcatationOfAllWords("wordgoodgoodgoodbestword", ["word", "good", "best", "good"]))
     print(leetcode.substringWithConcatationOfAllWords("barfoofoobarthefoobarman", ["bar", "foo", "the", "foo"]))
     print(leetcode.substringWithConcatationOfAllWords("barfoofoobarthefoobarman", ["bar", "foo", "the", "foobar"]))
-    print(leetcode.substringWithConcatationOfAllWords("barfoofoobarthefoobarman", ["bar", "foo", "the", "foobar", "
