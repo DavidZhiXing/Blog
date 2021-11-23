@@ -1,6 +1,9 @@
-strStr: String String -> String
-strStr str1 str2 =
+strStr : String -> String -> String
+strStr s1 s2 =
   let
-    str1Len = length str1
-    str2Len = length str2
+    s1' = T.pack s1
+    s2' = T.pack s2
+  in
+    T.unpack $ T.drop (T.length s2') $ T.breakOn s2' s1'
+
 
