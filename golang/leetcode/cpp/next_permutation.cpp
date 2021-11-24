@@ -39,3 +39,7 @@ void test_nextPermutation() {
     }
     printf("\n");
 }
+
+int main() {
+    test_nextPermutation();
+}
