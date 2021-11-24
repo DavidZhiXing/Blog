@@ -1,3 +1,5 @@
+use core::cmp::max;
+
 fn longestValidParentheses(s: String) -> i32 {
     let mut stack: Vec<usize> = Vec::new();
     let mut max_len = 0;
@@ -15,7 +17,7 @@ fn longestValidParentheses(s: String) -> i32 {
         }
         i += 1;
     }
-    max_len
+    max_len as i32
 }
 
 #[test]
@@ -26,5 +28,15 @@ fn test_longestValidParentheses() {
     assert_eq!(longestValidParentheses(s), 2);
     let s = ")()())".to_string();
     assert_eq!(longestValidParentheses(s), 4);
+}
 
+
+fn main() {
+    println!("{}", longestValidParentheses(String::from("(()")));
+    println!("{}", longestValidParentheses(String::from(")()())")));
+    println!("{}", longestValidParentheses(String::from("()(()")));
+    println!("{}", longestValidParentheses(String::from("()(()()")));
+    println!("{}", longestValidParentheses(String::from("()(()()()")));
+    println!("{}", longestValidParentheses(String::from("()(()()()()")));
+    println!("{}", longestValidParentheses(String::from("()(()()()()()")));
 }

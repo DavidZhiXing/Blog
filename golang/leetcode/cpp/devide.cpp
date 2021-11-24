@@ -1,5 +1,13 @@
 #include <stdio.h>
 
+const int INT_MAX = 2147483647;
+const int INT_MIN = -2147483648;
+
+long long labs(long long x) {
+    return x > 0 ? x : -x;
+}
+
+
 int devideTwoInteger(int dividend, int divisor) {
     if (divisor == 0) {
         return INT_MAX;
@@ -26,12 +34,7 @@ int devideTwoInteger(int dividend, int divisor) {
     return sign == 1 ? res : -res;
 }
 
-long long labs(long long x) {
-    return x > 0 ? x : -x;
-}
 
-const int INT_MAX = 2147483647;
-const int INT_MIN = -2147483648;
 
 // test
 int main() {
