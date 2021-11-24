@@ -22,3 +22,9 @@ func removeDuplicates(nums []int) int {
 	}
 	return i + 1
 }
+
+func main() {
+	nums := []int{1, 1, 2}
+	n := removeDuplicates(nums)
+	fmt.Println(n)
+}

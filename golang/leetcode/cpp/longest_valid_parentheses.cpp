@@ -1,5 +1,7 @@
-#include <iostream.h>
-#include <string.h>
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
 
 int LongestValidParentheses(string s) {
     int max_len = 0;
@@ -33,7 +35,9 @@ int LongestValidParentheses(string s) {
     return max_len;
 }
 
+
 int main() {
     string s = "()(()";
     cout << LongestValidParentheses(s) << endl;
     return 0;
+}
