@@ -45,4 +45,4 @@ fn test_next_permutation() {
     let mut nums = vec![1, 4, 2, 3];
     nextPermutation(&mut nums);
     assert_eq!(nums, vec![1, 2, 3, 4]);
-    let mut nums = vec![1, 4, 3, 2];
+}
