@@ -10,7 +10,7 @@ fn nextPermutation(nums: &mut Vec<i32>) {
         }
         nums.swap(i, j);
     }
-    nums.reverse();
+    nums[i + 1..].reverse();
 }
 
 #[test]
