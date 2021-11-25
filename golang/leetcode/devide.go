@@ -65,3 +65,8 @@ func divide(dividend int, divisor int) int {
 	}
 	return -res
 }
+
+func main() {
+	fmt.Println(divide(10, 3))
+	fmt.Println(divide(7, -3))
+	fmt.Println(divide(2147483647, -1))}

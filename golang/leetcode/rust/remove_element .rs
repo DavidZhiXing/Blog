@@ -6,7 +6,7 @@ fn removeElement(nums: &mut Vec<i32>, val: i32) -> i32 {
             nums[i] = nums[j];
         }
     }
-    i + 1
+    (i + 1) as i32
 }
 
 // test

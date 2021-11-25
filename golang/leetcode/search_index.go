@@ -23,30 +23,18 @@ package leetcode
 // output: 4
 //
 
-func searchIndex(nums []int, target int) int {
-	if len(nums) == 0 {
-		return -1
-	}
-
-	left, right := 0, len(nums)-1
-	for left <= right {
-		mid := left + (right-left)/2
-		if nums[mid] == target {
-			return mid
-		}
-		if nums[mid] > nums[right] {
-			if nums[mid] > target && nums[left] <= target {
-				right = mid - 1
-			} else {
-				left = mid + 1
-			}
+func searchInsert(nums []int, target int) int {
+	low, high := 0, len(nums)-1
+	for low <= high {
+		mid := low + (high-low)>>1
+		if nums[mid] >= target {
+			high = mid - 1
 		} else {
-			if nums[mid] < target && nums[right] >= target {
-				left = mid + 1
-			} else {
-				right = mid - 1
+			if (mid == len(nums)-1) || (nums[mid+1] >= target) {
+				return mid + 1
 			}
+			low = mid + 1
 		}
 	}
-	return left
+	return 0
 }
