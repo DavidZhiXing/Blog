@@ -9,5 +9,12 @@ public patial Utill{
     {
         return JsonConvert.DeserializeObject<T>(json);
     }
+
+    public static double[] DeepCopyArray(this double[] source)
+    {
+        double[] result = new double[source.Length];
+        Array.Copy(source, result, source.Length);
+        return result;
+    }
     
 }
