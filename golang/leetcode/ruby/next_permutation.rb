@@ -21,7 +21,7 @@ def reverse(nums, start, end)
   end
 end
 
-// test
+# test
 nums = [1, 2, 3]
 nextPermutation(nums)
 puts nums.join(',')
