@@ -23,7 +23,7 @@ def devideTwoInteger num1, num2
   return result * sign
 end
 
-// test
+# test
 puts devideTwoInteger(10, 3)
 puts devideTwoInteger(10, -3)
 puts devideTwoInteger(-10, 3)

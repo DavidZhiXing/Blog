@@ -17,7 +17,7 @@ def longestValidParentheses(s)
   max
 end
 
-// test
+# test
 puts longestValidParentheses('(()')
 puts longestValidParentheses(')()())')
 puts longestValidParentheses(')()())')
