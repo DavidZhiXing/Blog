@@ -146,3 +146,8 @@ $ git tag -a 1.2.1
 
 ```
 
+gitlab root 密码初始存放目录
+``` shell
+etc/gitlab/initial_root_password
+```
+

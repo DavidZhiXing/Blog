@@ -71,6 +71,23 @@ book_list = [
     'https://www.amazon.com',
     'https://www.jd.com',
     'https://www.taobao.com',
+    'Java Concurrency in Practice',
+    'Understanding distributed systems',
+    'Working in Public',
+    'Phoenix Project',
+    'Team topologies',
+    'Good code, bad code',
+    'Good strategy, bad strategy',
+    'Seriously good software',  # 可能是最好的软件
+    'Designing Data-Intensive Applications', # 数据应用设计
+    'Contianer security', # 容器安全
+    'Nodejs design patterns', # nodejs设计模式
+    'Software architecture the hard parts', # 软件设计难题
+    'Api security in action', # api安全
+    # 普林斯顿数学指南
+    'Princeton Math guide',
+
+
 ]
 code_review_list = [
     'https://www.github.com',
