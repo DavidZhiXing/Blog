@@ -36,7 +36,7 @@ func trap(height []int) int {
 	res := 0
 	for left < right {
 		if leftMax < rightMax {
-			left++
+			left++ 
 			if height[left] > leftMax {
 				leftMax = height[left]
 			}
@@ -56,3 +56,4 @@ type height struct {
 	h int
 	i int
 }
+
