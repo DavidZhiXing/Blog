@@ -53,6 +53,24 @@ func multiplyString(num1 string, num2 string) string {
 	return string(result)
 }
 
+func add(a []byte, b []byte) []byte {
+	if len(a) < len(b) {
+		a, b = b, a
+	}
+	var carry byte
+	for i := 0; i < len(b); i++ {
+		val := a[i] + b[i] + carry
+		carry = val / 10
+		a[i] = val % 10
+	}
+	for i := len(b); carry > 0; i++ {
+		val := a[i] + carry
+		carry = val / 10
+		a[i] = val % 10
+	}
+	return a
+}
+
 type testCase struct {
 	num1 string
 	num2 string
@@ -75,8 +93,8 @@ func main() {
 		}
 	for _, test := range testCases {
 		result := multiplyString(test.num1, test.num2)
-		if result != test.result {
-			panic(fmt.Sprintf("%s * %s = %s, expect %s", test.num1, test.num2, result, test.result))
+		if result != test.want {
+			panic(fmt.Sprintf("%s * %s = %s, expect %s", test.num1, test.num2, result, test.want))
 		}
 	}
 }
