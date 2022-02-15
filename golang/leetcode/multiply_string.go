@@ -53,25 +53,26 @@ func multiplyString(num1 string, num2 string) string {
 	return string(result)
 }
 
-testCases := []struct {
+type testCase struct {
 	num1 string
 	num2 string
-	result string
-}
-{
-	"2", "3", "6"
-},
-{
-	"123", "456", "56088"
-},
-{
-	"0", "0", "0"
-},
-{
-	"1", "1", "1"
+	want string
 }
 
+
 func main() {
+	cases := []testCase{
+		{
+			num1: "2",
+			num2: "3",
+			want: "6",
+		},
+		{
+			num1: "123",
+			num2: "456",
+			want: "56088",
+		},
+		}
 	for _, test := range testCases {
 		result := multiplyString(test.num1, test.num2)
 		if result != test.result {
