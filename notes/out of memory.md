@@ -1,0 +1,6 @@
+- LOH
+- log4net同步延迟
+- perfview分析gen2
+- 如何获取fulldump
+- 如何用windbg分析fulldump
+- minidump的问题

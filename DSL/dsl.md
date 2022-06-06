@@ -1,0 +1,5 @@
+- localization文件夹下所有的json新增字段 "key":"value"
+- 根据json文件名[name.json]的name字段翻译value
+- 每个月一号自动转账到卡号为[123456789]的银行卡
+- 如果图片的特征点颜色和设定的颜色数组color_array比较相近，则点击设定的坐标[x,y]
+- 
