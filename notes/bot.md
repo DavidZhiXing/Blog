@@ -1,0 +1,15 @@
+### Feature
+- Online/Offline speech to text
+- Online/Offline text to Intent
+- Local intent recognition for faster look up
+- Knowledge graph integration interface
+- voice/text input via andriod speech api
+- smart caching layer
+    - in memory lookup
+    - db lookup
+    - generalized rule look up
+    - luis query & async cache
+    - knowledge graph qurery
+- Persistent db layer
+- luis client
+- knowledge graph support
