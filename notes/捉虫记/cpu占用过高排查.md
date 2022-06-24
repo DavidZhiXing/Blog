@@ -4,7 +4,7 @@
 - 在windbg中打开dump文件
 - 导入pdb符合
 - !runaway , 可以看到占用过高的线程
-- 
+
 ![](/notes/捉虫记/image/runaway.png)
 
 
