@@ -15,9 +15,8 @@
 
 
 - alt + 6 查看调用堆栈
-<<<<<<< HEAD
-![](/image/stack.png)
 
+![](/notes/捉虫记/image/stack.png)
 
 ### 总结
 ---
@@ -39,10 +38,7 @@ kbn                　　//显示当前线程信息
 .load wow64exts
 !sw                   //切换到64位
 ```
-=======
-
-![](/notes/捉虫记/image/stack.png)
 
 
 
->>>>>>> ae069a3c7e44f89448fe9f1c1e3b1c68b3d22fd9
+
