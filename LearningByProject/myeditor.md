@@ -1,0 +1,7 @@
+- setup gcc
+- setup neovim
+- write main.c and Makefile
+- build and run
+- raw writting and ctrl c c to exit
+- add 'q' to exit
+- turn off echoing
