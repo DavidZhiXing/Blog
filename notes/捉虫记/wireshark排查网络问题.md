@@ -30,29 +30,29 @@ RCS的同事找我排查扫码的问题，我查看日志Log, 发现是他们没
     <details>
         <summary> 字符转为byte[]数组 </summary>
     
-        ``` C#
-            public static byte[] HexStringToByteArray(this string Hex)
-            {
-                byte[] Bytes = new byte[Hex.Length / 2];
-                int[] HexValue = new int[] { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05,
-                   0x06, 0x07, 0x08, 0x09, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-                   0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F };
+    ``` C#
+        public static byte[] HexStringToByteArray(this string Hex)
+        {
+            byte[] Bytes = new byte[Hex.Length / 2];
+            int[] HexValue = new int[] { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05,
+                0x06, 0x07, 0x08, 0x09, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+                0x0A, 0x0B, 0x0C, 0x0D, 0x0E, 0x0F };
 
-                for (int x = 0, i = 0; i < Hex.Length; i += 2, x += 1)
-                {
-                    Bytes[x] = (byte)(HexValue[Char.ToUpper(Hex[i + 0]) - '0'] << 4 |
-                                      HexValue[Char.ToUpper(Hex[i + 1]) - '0']);
-                }
-                return Bytes;
+            for (int x = 0, i = 0; i < Hex.Length; i += 2, x += 1)
+            {
+                Bytes[x] = (byte)(HexValue[Char.ToUpper(Hex[i + 0]) - '0'] << 4 |
+                                    HexValue[Char.ToUpper(Hex[i + 1]) - '0']);
             }
-        ```
-        
+            return Bytes;
+        }
+    ```
+
     </details>
 
     <details>
         <summary> 测试 </summary>
     
-        ``` C#
+    ``` C#
         [DataRow("51001500000040800180a26688010292014108021080a26618032217aa9002a69002a79002929002a59002fce901beeb01d3363a1330303031414756e59b9ee58585e794b5e4bd8d4209a79002929002a590022cdb34ec")]
         [DataTestMethod]
         public void TestLoadData(string dataStr)
@@ -103,7 +103,7 @@ RCS的同事找我排查扫码的问题，我查看日志Log, 发现是他们没
                 Cancelable = task.Cancelable,
             };
         }
-        ```
+    ```
     </details>
 
 - 将得到数据截图发送给RCS，给足他们证据，减少扯皮
