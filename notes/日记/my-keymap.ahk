@@ -4,12 +4,133 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
-CapsLock & i::Send, {blind}{Up}
-CapsLock & j::Send, {blind}{Left}
-CapsLock & l::Send, {blind}{Right}
-CapsLock & k::Send, {blind}{Down}
-CapsLock & u::Send, ^{left}
-CapsLock & o::Send, ^{right}
+;=====================================================================o
+;                    CapsLock Direction Navigator                    ;|
+;-----------------------------------o---------------------------------o
+;                      CapsLock + j |  Left                          ;|
+;                      CapsLock + k |  Down                          ;|
+;                      CapsLock + i |  Up                            ;|
+;                      CapsLock + l |  Right                         ;|
+;                      Ctrl, Alt Compatible                          ;|
+;-----------------------------------o---------------------------------o
+CapsLock & j::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {Left}                                                 ;|
+    else                                                             ;|
+        Send, +{Left}                                                ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Left}                                                ;|
+    else                                                             ;|
+        Send, +^{Left}                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;-----------------------------------o                                ;|
+CapsLock & k::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {Down}                                                 ;|
+    else                                                             ;|
+        Send, +{Down}                                                ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Down}                                                ;|
+    else                                                             ;|
+        Send, +^{Down}                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;-----------------------------------o                                ;|
+CapsLock & i::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {Up}                                                   ;|
+    else                                                             ;|
+        Send, +{Up}                                                  ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Up}                                                  ;|
+    else                                                             ;|
+        Send, +^{Up}                                                 ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;-----------------------------------o                                ;|
+CapsLock & l::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {Right}                                                ;|
+    else                                                             ;|
+        Send, +{Right}                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Right}                                               ;|
+    else                                                             ;|
+        Send, +^{Right}                                              ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;---------------------------------------------------------------------o
+
+
+;=====================================================================o
+;                     CapsLock Home/End Navigator                    ;|
+;-----------------------------------o---------------------------------o
+;                      CapsLock + u |  Home                          ;|
+;                      CapsLock + o |  End                           ;|
+;                      Ctrl, Alt Compatible                          ;|
+;-----------------------------------o---------------------------------o
+CapsLock & u::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {Home}                                                 ;|
+    else                                                             ;|
+        Send, +{Home}                                                ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Home}                                                ;|
+    else                                                             ;|
+        Send, +^{Home}                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;-----------------------------------o                                ;|
+CapsLock & o::                                                       ;|
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, {End}                                                  ;|
+    else                                                             ;|
+        Send, +{End}                                                 ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{End}                                                 ;|
+    else                                                             ;|
+        Send, +^{End}                                                ;|
+    return                                                           ;|
+}                                                                    ;|
+return                                                               ;|
+;---------------------------------------------------------------------o
+
 CapsLock & h::Send, {blind}{home}
 CapsLock & y::Send, {blind}{PgUp}
 CapsLock & n::Send, {blind}{PgDn}
@@ -30,16 +151,98 @@ return
 ;                  CapsLock + Right |  Mouse Right                   ;|
 ;    CapsLock + Enter(Push Release) |  Mouse Left Push(Release)      ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & Up::    MouseMove, 0, -10, 0, R                           ;|
-CapsLock & Down::  MouseMove, 0, 10, 0, R                            ;|
-CapsLock & Left::  MouseMove, -10, 0, 0, R                           ;|
-CapsLock & Right:: MouseMove, 10, 0, 0, R                            ;|
+CapsLock & Up::    
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 0, -10, 0, R                                                ;|
+    else                                                             ;|
+        MouseMove, 0, -100, 0, R                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 0, -200, 0, R                                               ;|
+    else                                                             ;|
+        MouseMove, 0, -300, 0, R                                              ;|
+    return                                                           ;|
+}                                                                    ;|
+return 
+
+                           ;|
+CapsLock & Down::  
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 0, 10, 0, R                                                ;|
+    else                                                             ;|
+        MouseMove, 0, 100, 0, R                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 0, 200, 0, R                                               ;|
+    else                                                             ;|
+        MouseMove, 0, 300, 0, R                                              ;|
+    return                                                           ;|
+}                                                                    ;|
+return 
+
+                            ;|
+CapsLock & Left::
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, -10, 0, 0, R                                                ;|
+    else                                                             ;|
+        MouseMove, -100, 0, 0, R                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, -200, 0, 0, R                                               ;|
+    else                                                             ;|
+        MouseMove, -300, 0, 0, R                                              ;|
+    return                                                           ;|
+}                                                                    ;|
+return 
+
+                             ;|
+CapsLock & Right::
+if GetKeyState("control") = 0                                        ;|
+{                                                                    ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 10, 0, 0, R                                                 ;|
+    else                                                             ;|
+        MouseMove, 100, 0, 0, R                                                ;|
+    return                                                           ;|
+}                                                                    ;|
+else {                                                               ;|
+    if GetKeyState("shift") = 0                                        ;|
+        MouseMove, 200, 0, 0, R                                                ;|
+    else                                                             ;|
+        MouseMove, 300, 0, 0, R                                               ;|
+    return                                                           ;|
+}                                                                    ;|
+return 
+
+                            ;|
 ;-----------------------------------o                                ;|
-CapsLock & Enter::                                                   ;|
-SendEvent {Blind}{LButton down}                                      ;|
-KeyWait Enter                                                        ;|
-SendEvent {Blind}{LButton up}                                        ;|
-return                                                               ;|
+CapsLock & Enter::
+if GetKeyState("Control") = 0
+{                                                   ;|
+    SendEvent {Blind}{LButton down}                                      ;|
+    KeyWait Enter                                                        ;|
+    SendEvent {Blind}{LButton up}                                        ;|
+    return
+}   
+else
+{
+    SendEvent {Blind}{RButton down}                                      ;|
+    KeyWait Enter                                                        ;|
+    SendEvent {Blind}{RButton up}                                        ;|
+    return
+}                                                            ;|
 ;---------------------------------------------------------------------o
 
 ;=====================================================================o
@@ -149,7 +352,7 @@ CapsLock & t:: Run Powershell                                        ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & `;:: Send, {Enter}                                        ;|
 CapsLock & ':: Send, =                                               ;|
-CapsLock & [:: Send, ^-                                              ;|
+CapsLock & [:: Send, !{left}                                              ;|
 CapsLock & ]:: Send, {F12}                                           ;|
 ;-----------------------------------o                                ;|
 CapsLock & /::                                                       ;|
