@@ -164,7 +164,7 @@ else {                                                               ;|
     if GetKeyState("shift") = 0                                        ;|
         MouseMove, 0, -200, 0, R                                               ;|
     else                                                             ;|
-        MouseMove, 0, -300, 0, R                                              ;|
+        MouseMove, 0, -500, 0, R                                              ;|
     return                                                           ;|
 }                                                                    ;|
 return 
@@ -183,7 +183,7 @@ else {                                                               ;|
     if GetKeyState("shift") = 0                                        ;|
         MouseMove, 0, 200, 0, R                                               ;|
     else                                                             ;|
-        MouseMove, 0, 300, 0, R                                              ;|
+        MouseMove, 0, 500, 0, R                                              ;|
     return                                                           ;|
 }                                                                    ;|
 return 
@@ -202,7 +202,7 @@ else {                                                               ;|
     if GetKeyState("shift") = 0                                        ;|
         MouseMove, -200, 0, 0, R                                               ;|
     else                                                             ;|
-        MouseMove, -300, 0, 0, R                                              ;|
+        MouseMove, -500, 0, 0, R                                              ;|
     return                                                           ;|
 }                                                                    ;|
 return 
@@ -221,7 +221,7 @@ else {                                                               ;|
     if GetKeyState("shift") = 0                                        ;|
         MouseMove, 200, 0, 0, R                                                ;|
     else                                                             ;|
-        MouseMove, 300, 0, 0, R                                               ;|
+        MouseMove, 500, 0, 0, R                                               ;|
     return                                                           ;|
 }                                                                    ;|
 return 
