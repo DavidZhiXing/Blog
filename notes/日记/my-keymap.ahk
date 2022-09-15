@@ -131,7 +131,7 @@ else {                                                               ;|
 return                                                               ;|
 ;---------------------------------------------------------------------o
 
-CapsLock & h::Send, {blind}{home}
+;CapsLock & h::Send, {blind}{home}
 CapsLock & y::Send, {blind}{PgUp}
 CapsLock & n::Send, {blind}{PgDn}
 CapsLock & q::Send, !{F4}
@@ -352,8 +352,23 @@ CapsLock & t:: Run Powershell                                        ;|
 ;-----------------------------------o---------------------------------o
 CapsLock & `;:: Send, {Enter}                                        ;|
 CapsLock & ':: Send, =                                               ;|
-CapsLock & [:: Send, !{left}                                              ;|
-CapsLock & ]:: Send, {F12}                                           ;|
+CapsLock & ]:: Send, !{left}                                              ;|
+                                          ;|
+
+;=====================================================================o
+;                           CapsLock Deletor                         ;|
+;-----------------------------------o---------------------------------o
+;                     CapsLock + n  |  Ctrl + Delete (Delete a Word) ;|
+;                     CapsLock + m  |  Delete                        ;|
+;                     CapsLock + ,  |  BackSpace                     ;|
+;                     CapsLock + .  |  Ctrl + BackSpace              ;|
+;-----------------------------------o---------------------------------o
+CapsLock & d:: Send, ^{BS}                                           ;|
+CapsLock & f:: Send, ^{Del}                                          ;|
+CapsLock & [:: Send, {Del}                                            ;|
+CapsLock & p:: Send, {BS}                                           ;|
+;---------------------------------------------------------------------o
+
 ;-----------------------------------o                                ;|
 CapsLock & /::                                                       ;|
 Send, ^e                                                             ;|
@@ -406,9 +421,11 @@ CapsLock::Send, {ESC}                                                ;|
 ;CAPSLOCK & w::LWin
 
 ; Speed
-; CapsLock & 8::Send, {Up 5}
+CapsLock & .::Send, {Up 5}
 CapsLock & m::Send, {blind}^{Left 6}
-CapsLock & .::Send, {blind}^{Right 6}
+CapsLock & h::Send, {blind}^{Right 6}
+; CapsLock & /::Send, {blind}^{Right 6}
+
 CapsLock & ,::Send, {Down 5}
 
 ; since Alt is in position of Apple Cmd key these are usually:
