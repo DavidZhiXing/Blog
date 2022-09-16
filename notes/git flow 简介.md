@@ -1,4 +1,4 @@
-![img](E:\notes\git\Blog\imagines\git-model@2x.png)
+![img](..\Blog\imagines\git-model@2x.png)
 
 ## Git Flow常用的分支
 
@@ -30,7 +30,7 @@
 
 #### 初始分支
 
-![](E:\notes\git\Blog\imagines\845143-97ccc6e966213d91.png)
+![](..\imagines\845143-97ccc6e966213d91.png)
 
 #### 开发功能
 
@@ -42,13 +42,13 @@
 
 项目负责人在收到合并请求时，应该先做下代码审核看看有没有明显的严重的错误；有问题就找负责开发的人去修改，没有就接受请求并删除对应的 feature 分支。
 
-![](E:\notes\git\Blog\imagines\845143-3503671d290d71c1.png)
+![](..\imagines\845143-3503671d290d71c1.png)
 
 #### 测试功能
 
 负责测试的人创建一个 release 分支部署到测试环境进行测试；若发现了 bug，相应的开发人员就在 release 分支上或者基于 release 分支创建一个分支进行修复。	
 
-![](E:\notes\git\Blog\imagines\845143-08eeaf88229f3f77.png)
+![](..\imagines\845143-08eeaf88229f3f77.png)
 
 #### 发布上线
 
@@ -62,7 +62,7 @@
 
 如果是相当严重的问题，可能就得回滚到上一个 tag 的版本了。
 
-![](E:\notes\git\Blog\imagines\845143-184f7c3a9dd71b46.png)
+![](..\imagines\845143-184f7c3a9dd71b46.png)
 
 
 
