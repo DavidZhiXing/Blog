@@ -1,4 +1,12 @@
-![img](..\Blog\imagines\git-model@2x.png)
+## 希望掌握的知识 
+- git的基础操作
+- 分支的概念
+- 冲突的理解
+- gitlab的简单操作
+
+## git flow总图
+
+![img](..\imagines\git-model@2x.png)
 
 ## Git Flow常用的分支
 
@@ -6,20 +14,16 @@
   这个分支包含最近发布到生产环境的代码，最近发布的Release， 这个分支只能从其他分支合并，不能在这个分支直接修改
 
   只允许存在一个Master分支，并且需要保护起来，只要小组负责人才有合并权限。
-
 - **Develop**
   这个分支在项目开始时创建并在整个开发过程中维护，并包含具有正在测试过程中的新开发功能的预生产代码
 
   新创建的功能应该基于开发分支，然后在准备好进行测试时合并回来。
 
   只允许存在一个Develop分支，并且需要保护起来，只有小组负责人才有合并权限。
-
 - Feature
   这个分支主要是用来开发一个新的功能，功能开发完成并且通过Code Review后，合并回Develop分支，并进入下一个Release
-
 - Release
   当你需要发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支。通常，在Release分支上执行的工作涉及与发布新代码相关的收尾工作和小错误。
-
 - Hotfix
 
   当发现线上环境的代码有小问题或者做些文案修改时，相关开发人员就在本地创建 hotfix 分支进行修改。
@@ -46,7 +50,7 @@
 
 #### 测试功能
 
-负责测试的人创建一个 release 分支部署到测试环境进行测试；若发现了 bug，相应的开发人员就在 release 分支上或者基于 release 分支创建一个分支进行修复。	
+负责测试的人创建一个 release 分支部署到测试环境进行测试；若发现了 bug，相应的开发人员就在 release 分支上或者基于 release 分支创建一个分支进行修复。
 
 ![](..\imagines\845143-08eeaf88229f3f77.png)
 
@@ -64,8 +68,6 @@
 
 ![](..\imagines\845143-184f7c3a9dd71b46.png)
 
-
-
 #### 分支命名
 
 除了主要分支的名字是固定的之外，派生分支是需要自己命名的，这里就要有个命名规范了。强烈推荐用如下形式：
@@ -82,15 +84,13 @@
 
 在有一波或几波需求来临之时，想挡掉是不太可能的，但可以在评审时将它（们）分期，在某个发布日之前只做一部分。这是必须要控制住的！不然任由着需求方说「这个今天一定要上」「那个明天急着用」的话，技术人员就等着进医院吧！
 
-
-
 **工具推荐**：
 
 SourceTree (可以实际演示一下)
 
 ## 常用git flow命令
 
-``` shell
+```shell
 $ git flow feature start rss-feed
 Switched to a new branch 'feature/rss-feed'
 
@@ -99,7 +99,7 @@ Summary of actions:
 - You are now on branch 'feature/rss-feed'
 ```
 
-``` shell
+```shell
 $ git flow feature finish rss-feed
 Switched to branch 'develop'
 Updating 6bcf266..41748ad
@@ -110,20 +110,24 @@ Fast-forward
 Deleted branch feature/rss-feed (was 41748ad).
 ```
 
-``` shell
+```shell
 $ git flow release start 1.1.5
 Switched to a new branch 'release/1.1.5'
 ```
 
-``` shell
+```shell
 $ git flow release finish 1.1.5
 ```
 
-``` shell
+```shell
 $ git flow hotfix start missing-link
 ```
 
-``` shell
+```shell
 $ git flow hotfix finish missing-link
 ```
 
+## 参考资料
+- https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow
+- https://nvie.com/posts/a-successful-git-branching-model/
+- https://www.cnblogs.com/wish123/p/9785101.html
