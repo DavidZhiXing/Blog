@@ -94,7 +94,7 @@ return                                                               ;|
 ;                      CapsLock + o |  End                           ;|
 ;                      Ctrl, Alt Compatible                          ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & u::                                                       ;|
+CapsLock & h::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("shift") = 0                                        ;|
@@ -112,7 +112,7 @@ else {                                                               ;|
 }                                                                    ;|
 return                                                               ;|
 ;-----------------------------------o                                ;|
-CapsLock & o::                                                       ;|
+CapsLock & `;::                                                       ;|
 if GetKeyState("control") = 0                                        ;|
 {                                                                    ;|
     if GetKeyState("shift") = 0                                        ;|
@@ -134,10 +134,15 @@ return                                                               ;|
 ;CapsLock & h::Send, {blind}{home}
 CapsLock & y::Send, {blind}{PgUp}
 CapsLock & n::Send, {blind}{PgDn}
-CapsLock & q::Send, !{F4}
+CapsLock & z::Send, !{F4}
 
 
-CapsLock & s::
+CapsLock & g::
+	 SendInput, {End}
+	 SendInput, {Enter}
+return
+
+CapsLock & a::
 	 SendInput, {End}
 	 SendInput, {Enter}
 return
@@ -257,14 +262,14 @@ else
 ;                     CapsLock + w  |  Ctrl + Right(Move as [vim: w]);|
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
-CapsLock & z:: Send, ^z                                              ;|
-CapsLock & x:: Send, ^x                                              ;|
-CapsLock & c:: Send, ^c                                              ;|
-CapsLock & v:: Send, ^v                                              ;|
-CapsLock & a:: Send, ^a                                              ;|
-CapsLock & r:: Send, ^y                                              ;|
-CapsLock & w:: Send, ^{Right}                                        ;|
-CapsLock & b:: Send, ^{Left}                                         ;|
+; CapsLock & z:: Send, ^z                                              ;|
+; CapsLock & x:: Send, ^x                                              ;|
+; CapsLock & c:: Send, ^c                                              ;|
+; CapsLock & v:: Send, ^v                                              ;|
+; CapsLock & a:: Send, ^a                                              ;|
+; CapsLock & r:: Send, ^y                                              ;|
+CapsLock & o:: Send, ^{Right}                                        ;|
+CapsLock & u:: Send, ^{Left}                                         ;|
 ;---------------------------------------------------------------------o
 
 
@@ -296,7 +301,7 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;               Alt + CapsLock + q  |  Ctrl + Tab (Close Windows)    ;|
 ;                     CapsLock + g  |  AppsKey    (Menu Key)         ;|
 ;-----------------------------------o---------------------------------o
-;CapsLock & s::Send, ^s                                           ;|
+CapsLock & s::Send, ^s                                           ;|
 ;-----------------------------------o                                ;|
 ;CapsLock & q::                                                       ;|
 ;if GetKeyState("alt") = 0                                            ;|
@@ -309,7 +314,7 @@ CapsLock & F6:: Send, {Media_Stop}                                   ;|
 ;}                                                                    ;|
 ;return                                                               ;|
 ;-----------------------------------o                                ;|
-CapsLock & g:: Send, {AppsKey}                                       ;|
+CapsLock & b:: Send, {AppsKey}                                       ;|
 ;---------------------------------------------------------------------o
 
 
@@ -324,7 +329,7 @@ CapsLock & g:: Send, {AppsKey}                                       ;|
 ;-----------------------------------o---------------------------------o
 ; CapsLock & d:: Send, !d                                              ;|
 ; CapsLock & f:: Send, !f                                              ;|
-CapsLock & e:: Run http://cn.bing.com/                               ;|
+; CapsLock & e:: Run http://cn.bing.com/                               ;|
 CapsLock & t:: Run Powershell                                        ;|
 ;CapsLock & t:: Run C:\Program Files (x86)\Notepad++\notepad++.exe    ;|
 ;---------------------------------------------------------------------o
@@ -344,13 +349,13 @@ CapsLock & t:: Run Powershell                                        ;|
 ;                     CapsLock + 3  |  Step Over    (VSCODE)  ;|
 ;                     CapsLock + 4  |  Step In      (VSCODE)  ;|
 ;                     CapsLock + 5  |  Stop Debuging(VSCODE)  ;|
-;                     CapsLock + 6  |  Shift + 6     ^               ;|
+;                     CapsLock + 6  |  Shift + 6     ^               ;|DDD
 ;                     CapsLock + 7  |  Shift + 7     &               ;|
 ;                     CapsLock + 8  |  Shift + 8     *               ;|
 ;                     CapsLock + 9  |  Shift + 9     (               ;|
 ;                     CapsLock + 0  |  Shift + 0     )               ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & `;:: Send, {Enter}                                        ;|
+CapsLock & f:: Send, {Enter}                                        ;|
 CapsLock & ':: Send, =                                               ;|
 CapsLock & ]:: Send, !{left}                                              ;|
                                           ;|
@@ -363,10 +368,10 @@ CapsLock & ]:: Send, !{left}                                              ;|
 ;                     CapsLock + ,  |  BackSpace                     ;|
 ;                     CapsLock + .  |  Ctrl + BackSpace              ;|
 ;-----------------------------------o---------------------------------o
-CapsLock & d:: Send, ^{BS}                                           ;|
-CapsLock & f:: Send, ^{Del}                                          ;|
-CapsLock & [:: Send, {Del}                                            ;|
-CapsLock & p:: Send, {BS}                                           ;|
+CapsLock & q:: Send, ^{BS}                                           ;|
+CapsLock & w:: Send, ^{Del}                                          ;|
+CapsLock & r:: Send, {Del}                                            ;|
+CapsLock & e:: Send, {BS}                                           ;|
 ;---------------------------------------------------------------------o
 
 ;-----------------------------------o                                ;|
@@ -423,7 +428,8 @@ CapsLock::Send, {ESC}                                                ;|
 ; Speed
 CapsLock & .::Send, {Up 5}
 CapsLock & m::Send, {blind}^{Left 6}
-CapsLock & h::Send, {blind}^{Right 6}
+CapsLock & p::Send, {blind}^{Right 6}
+CapsLock & x::Send, ^w
 ; CapsLock & /::Send, {blind}^{Right 6}
 
 CapsLock & ,::Send, {Down 5}
