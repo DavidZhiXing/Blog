@@ -134,7 +134,7 @@ return                                                               ;|
 ;CapsLock & h::Send, {blind}{home}
 CapsLock & y::Send, {blind}{PgUp}
 CapsLock & n::Send, {blind}{PgDn}
-CapsLock & z::Send, !{F4}
+CapsLock & v::Send, !{F4}
 
 
 CapsLock & g::
@@ -262,14 +262,26 @@ else
 ;                     CapsLock + w  |  Ctrl + Right(Move as [vim: w]);|
 ;                     CapsLock + b  |  Ctrl + Left (Move as [vim: b]);|
 ;-----------------------------------o---------------------------------o
-; CapsLock & z:: Send, ^z                                              ;|
+CapsLock & z:: Send, ^z                                              ;|
 ; CapsLock & x:: Send, ^x                                              ;|
 ; CapsLock & c:: Send, ^c                                              ;|
 ; CapsLock & v:: Send, ^v                                              ;|
 ; CapsLock & a:: Send, ^a                                              ;|
 ; CapsLock & r:: Send, ^y                                              ;|
-CapsLock & o:: Send, ^{Right}                                        ;|
-CapsLock & u:: Send, ^{Left}                                         ;|
+CapsLock & o:: 
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Right}                                        ;|
+    else                                                             ;|
+        Send, ^+{Right}                                               ;|
+    return    
+
+CapsLock & u::                                        ;|
+    if GetKeyState("shift") = 0                                        ;|
+        Send, ^{Left}                                        ;|
+    else                                                             ;|
+        Send, ^+{Left}                                               ;|
+    return  
+
 ;---------------------------------------------------------------------o
 
 
@@ -430,6 +442,8 @@ CapsLock & .::Send, {Up 5}
 CapsLock & m::Send, {blind}^{Left 6}
 CapsLock & p::Send, {blind}^{Right 6}
 CapsLock & x::Send, ^w
+CapsLock & d::Send, ^f
+CapsLock & c::Send, ^n
 ; CapsLock & /::Send, {blind}^{Right 6}
 
 CapsLock & ,::Send, {Down 5}
