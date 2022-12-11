@@ -1,0 +1,8 @@
+There are a number of ways to test a backend developer's ability to solve real-world problems, such as:
+
+Giving the developer a specific problem to solve, such as a bug or a performance issue, and asking them to provide a solution.
+Asking the developer to explain how they would approach a particular problem, and evaluating their response based on their knowledge, experience, and problem-solving ability.
+Providing the developer with a sample project or codebase, and asking them to identify and fix any issues or problems that they encounter.
+Asking the developer to explain the architecture and design of a complex system that they have previously worked on, and evaluating their understanding of the system and their ability to communicate it effectively.
+
+Even with the use of AI tools, there are still significant differences between junior and senior developers in terms of their experience, knowledge, and skills. While AI tools can help developers quickly and easily find answers to their questions, they do not replace the expertise and knowledge that senior developers have acquired through years of experience and learning. Senior developers are typically more experienced and knowledgeable than junior developers, and are able to apply their expertise and knowledge to solve complex problems, design efficient solutions, and provide guidance and mentorship to other developers. Additionally, senior developers often have a broader range of skills and knowledge, and are able to adapt to changing technologies and requirements more easily than junior developers. These factors, among others, are why senior developers are typically paid more than junior developers.
