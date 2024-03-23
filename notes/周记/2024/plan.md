@@ -1,0 +1,53 @@
+# 搞定数字游民身份
+- 国外地址
+    - 香港地址
+    - 美国地址
+    - 日本地址
+    - 印度尼西亚地址
+- 国外电话  
+    - google voice
+    - skype
+    - eSim
+    - giffgaff
+    - 菲律宾卡
+    - 印度尼西亚卡
+    - 香港eSim
+- 国外银行卡
+    - Revolut
+    - N26
+    - Monzo
+    - TransferWise
+    - Payoneer
+    - Skrill
+    - Neteller
+    - Paysera
+    - 香港汇丰银行卡、信用卡
+- 国外信用卡
+    - Wise
+- 国外支付
+    - PayPal
+    - Stripe
+    - Alipay
+    - WeChat Pay
+    - Apple Pay
+    - Google Pay
+    - Samsung Pay
+    - Payoneer
+    - Skrill
+    - Neteller
+    - Paysera
+- 国际驾照
+    - 香港驾照
+    - 日本驾照
+    - 韩国驾照
+    - 菲律宾驾照
+# 搞定日语
+- CV
+    - cv 模板
+    - cv 翻译
+    - cv 修正
+- 面试
+    - 自我介绍
+    - mock interview
+    - 真实interview
+    - homework
